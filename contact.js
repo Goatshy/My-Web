@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         emailjs.send("service_9m1xkeo", "template_9gmeogj", params)
             .then(function () {
+                // Second send: auto-reply back to the person who submitted the form.
+                // Only needed if you made a SEPARATE template for the auto-reply
+                // rather than using EmailJS's built-in Auto-Reply tab.
+                return emailjs.send("service_9m1xkeo", "template_an9ebel", params);
+            })
+            .then(function () {
                 statusEl.textContent = "Message sent. I'll get back to you soon.";
                 statusEl.className = "form-status success";
                 form.reset();
