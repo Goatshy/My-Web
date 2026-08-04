@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "TT Firs Neue", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(
+        180deg,
+        #0a0e27 0%,
+        #15173c 15%,
+        #241f52 32%,
+        #35236a 50%,
+        #472a80 68%,
+        #3a2264 100%
+    );
+}
+
+.navbar,
+.body,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Load-in animation (matches Home, About, and Projects pages) ===== */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .left-nav p,
+    .right-nav a,
+    .showcase-content > a[href="Projects.html"],
+    .project-name,
+    .body h3,
+    .learned,
+    .components-list p,
+    .showcase-content > a[href*="wokwi"],
+    .showcase-embed {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ===== Navbar (same as the rest of the site) ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+}
+
+.left-nav p {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #4db8ff;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.05s both;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.right-nav a {
+    position: relative;
+    color: #d7dcf5;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.right-nav a:nth-child(1) { animation-delay: 0.1s; }
+.right-nav a:nth-child(2) { animation-delay: 0.15s; }
+.right-nav a:nth-child(3) { animation-delay: 0.2s; }
+.right-nav a:nth-child(4) { animation-delay: 0.25s; }
+
+.right-nav a:hover,
+.right-nav a:focus-visible {
+    color: #4db8ff;
+}
+
+.right-nav a:not([href*="mail"])::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #4db8ff;
+    transition: width 0.25s ease;
+}
+
+.right-nav a:not([href*="mail"]):hover::after,
+.right-nav a:not([href*="mail"]):focus-visible::after {
+    width: 100%;
+}
+
+.right-nav a[href*="mail"] {
+    background: #38b6ff;
+    color: #071022;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 999px;
+}
+
+.right-nav a[href*="mail"]:hover,
+.right-nav a[href*="mail"]:focus-visible {
+    background: #63c8ff;
+    color: #071022;
+}
+
+/* ===== Page body wrapper ===== */
+.body {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+    padding: 28px 48px 100px;
+}
+
+.showcase-content {
+    flex: 1 1 500px;
+    max-width: 700px;
+}
+
+.showcase-embed {
+    flex: 1 1 400px;
+    max-width: 560px;
+    aspect-ratio: 4 / 3;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 28px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.35s both;
+}
+
+.showcase-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.embed-placeholder {
+    color: #c9cde0;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 24px;
+}
+
+/* "Back to projects" link */
+.showcase-content > a[href="Projects.html"] {
+    display: inline-block;
+    color: #38b6ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.3s both;
+}
+
+.showcase-content > a[href="Projects.html"]:hover,
+.showcase-content > a[href="Projects.html"]:focus-visible {
+    color: #63c8ff;
+    text-decoration: underline;
+}
+
+.project-name {
+    font-family: "Telegraf", "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.4s both;
+}
+
+/* Both "Why i built this" and "Components" share this label style */
+.body h3 {
+    color: #4db8ff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.body h3:nth-of-type(1) { animation-delay: 0.5s; }
+.body h3:nth-of-type(2) { animation-delay: 0.8s; }
+
+.learned {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: #ffffff;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.learned:nth-of-type(1) { animation-delay: 0.6s; }
+.learned:nth-of-type(2) { animation-delay: 0.7s; }
+
+.learned:last-of-type {
+    margin-bottom: 28px;
+}
+
+.components {
+    margin-top: 4px;
+}
+
+.components-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.components-list::after {
+    content: "";
+    flex-basis: 100%;
+    width: 385px;
+    max-width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 24px;
+}
+
+.components-list p {
+    background: #38b6ff;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 7px 16px;
+    border-radius: 999px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.components-list p:nth-child(1) { animation-delay: 0.9s; }
+.components-list p:nth-child(2) { animation-delay: 0.93s; }
+.components-list p:nth-child(3) { animation-delay: 0.96s; }
+.components-list p:nth-child(4) { animation-delay: 0.99s; }
+.components-list p:nth-child(5) { animation-delay: 1.02s; }
+.components-list p:nth-child(6) { animation-delay: 1.05s; }
+.components-list p:nth-child(7) { animation-delay: 1.08s; }
+.components-list p:nth-child(8) { animation-delay: 1.11s; }
+
+.showcase-content > a[href*="wokwi"] {
+    display: inline-block;
+    background: #38b6ff;
+    color: #071022;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 13px 28px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.15s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 1.2s both;
+}
+
+.showcase-content > a[href*="wokwi"]:hover,
+.showcase-content > a[href*="wokwi"]:focus-visible {
+    background: #63c8ff;
+    transform: translateY(-1px);
+    color: #ffffff
+}
+
+/* Footer */
+.footer {
+    text-align: right;
+    padding: 20px 48px;
+    font-size: 0.85rem;
+    color: #4db8ff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .body {
+        flex-direction: column;
+    }
+
+    .showcase-embed {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .right-nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .body {
+        padding: 24px 20px 80px;
+    }
+
+    .project-name {
+        font-size: 2rem;
+    }
+
+    .footer {
+        text-align: center;
+    }
+}

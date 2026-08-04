@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "TT Firs Neue", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    /* Thicker than the About page: navy holds for less of the page,
+       and the purple band is deeper/more saturated overall. */
+    background: linear-gradient(
+        180deg,
+        #0a0e27 0%,
+        #15173c 10%,
+        #241f52 25%,
+        #35236a 40%,
+        #472a80 55%,
+        #5c2f95 70%,
+        #6c3b9d 85%,
+        #7a44ab 100%
+    );
+}
+
+.navbar,
+.body,
+body > div:last-of-type {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Load-in animation (matches Home and About pages) ===== */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .left-nav p,
+    .right-nav a,
+    .projects,
+    .opener,
+    .descript,
+    .project-box {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+}
+
+.left-nav p {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #4db8ff;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.05s both;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.right-nav a {
+    position: relative;
+    color: #d7dcf5;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.right-nav a:nth-child(1) { animation-delay: 0.1s; }
+.right-nav a:nth-child(2) { animation-delay: 0.15s; }
+.right-nav a:nth-child(3) { animation-delay: 0.2s; }
+.right-nav a:nth-child(4) { animation-delay: 0.25s; }
+
+.right-nav a:hover,
+.right-nav a:focus-visible {
+    color: #4db8ff;
+}
+
+.right-nav a:not([href*="mail"])::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #4db8ff;
+    transition: width 0.25s ease;
+}
+
+.right-nav a:not([href*="mail"]):hover::after,
+.right-nav a:not([href*="mail"]):focus-visible::after {
+    width: 100%;
+}
+
+.right-nav a[href*="mail"] {
+    background: #38b6ff;
+    color: #071022;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 999px;
+}
+
+.right-nav a[href*="mail"]:hover,
+.right-nav a[href*="mail"]:focus-visible {
+    background: #63c8ff;
+    color: #071022;
+}
+
+/* ===== Page body wrapper ===== */
+.body {
+    padding: 28px 48px 100px;
+}
+
+.projects {
+    color: #38b6ff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.3s both;
+}
+
+.opener {
+    font-family: "Telegraf", "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    max-width: 760px;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.4s both;
+}
+
+.descript {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #c9cde0;
+    max-width: 640px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.5s both;
+}
+
+/* ===== Project grid ===== */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.project-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.project-box:nth-child(1) { animation-delay: 0.6s; }
+.project-box:nth-child(2) { animation-delay: 0.7s; }
+.project-box:nth-child(3) { animation-delay: 0.8s; }
+.project-box:nth-child(4) { animation-delay: 0.9s; }
+.project-box:nth-child(5) { animation-delay: 1s; }
+.project-box:nth-child(6) { animation-delay: 1.1s; }
+
+.project-type {
+    display: inline-block;
+    background: #38b6ff;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+}
+
+.project-name {
+    font-family: "Telegraf", "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #c9cde0;
+    margin-bottom: 22px;
+}
+
+.project-link {
+    display: inline-block;
+    color: #38b6ff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+    color: #63c8ff;
+    text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+body > div:last-of-type {
+    text-align: right;
+    padding: 20px 48px;
+    font-size: 0.85rem;
+    color: #4db8ff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1000px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 780px) {
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .right-nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .body {
+        padding: 24px 20px 80px;
+    }
+
+    .opener {
+        font-size: 2rem;
+    }
+
+    body > div:last-of-type {
+        text-align: center;
+    }
+}
