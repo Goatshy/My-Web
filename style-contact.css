@@ -252,6 +252,7 @@ body::after {
  
 .contact-form button:hover:not(:disabled) {
     background: #63c8ff;
+    color: #ffffff;
 }
  
 .contact-form button:disabled {
