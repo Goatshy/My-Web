@@ -1,0 +1,399 @@
+/* ===== Reset & base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "TT Firs Neue", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    background: #0a0e27;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55vh;
+    background: linear-gradient(180deg, #5548a0 0%, #7566c0 50%, #9a8bd8 100%);
+    background-size: 100% 220%;
+    background-position: 0% 20%;
+    animation: gradientShift 16s ease-in-out infinite;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55vh;
+    background: linear-gradient(180deg, #0a0e27 0%, #0a0e27 12%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.navbar,
+.body,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 0% 40%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before {
+        animation: none;
+    }
+}
+
+/* ===== Load-in animation ===== */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.load-in {
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .load-in {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+}
+
+.left-nav p {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #4db8ff;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.05s both;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.right-nav a {
+    position: relative;
+    color: #d7dcf5;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.right-nav a:nth-child(1) { animation-delay: 0.1s; }
+.right-nav a:nth-child(2) { animation-delay: 0.15s; }
+.right-nav a:nth-child(3) { animation-delay: 0.2s; }
+.right-nav a:nth-child(4) { animation-delay: 0.25s; }
+
+.right-nav a:hover,
+.right-nav a:focus-visible {
+    color: #4db8ff;
+}
+
+/* Animated underline for nav links, not the Contact pill button */
+.right-nav a:not([href*="mail"])::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #4db8ff;
+    transition: width 0.25s ease;
+}
+
+.right-nav a:not([href*="mail"]):hover::after,
+.right-nav a:not([href*="mail"]):focus-visible::after {
+    width: 100%;
+}
+
+/* ===== Page body ===== */
+.body {
+    padding: 28px 48px 100px;
+    max-width: 1200px;
+}
+ 
+.eyebrow {
+    color: #38b6ff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.3s both;
+}
+ 
+.opener {
+    font-family: "Telegraf", "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.4s both;
+}
+ 
+.descript {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #c9cde0;
+    max-width: 560px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.5s both;
+}
+ 
+/* ===== Contact layout ===== */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 24px;
+}
+ 
+.contact-form {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.6s both;
+}
+ 
+.contact-form label {
+    font-size: 0.85rem;
+    color: #c9cde0;
+    margin-bottom: 6px;
+}
+ 
+.contact-form input,
+.contact-form textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    resize: vertical;
+}
+ 
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #38b6ff;
+}
+ 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #7a7fa0;
+}
+ 
+.contact-form button {
+    background: #38b6ff;
+    color: #071022;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    padding: 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+ 
+.contact-form button:hover:not(:disabled) {
+    background: #63c8ff;
+    color: #ffffff;
+}
+ 
+.contact-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+ 
+.form-status {
+    font-size: 0.85rem;
+    margin-top: 12px;
+    min-height: 1.2em;
+}
+ 
+.form-status.success {
+    color: #6ee7a8;
+}
+ 
+.form-status.error {
+    color: #f28b8b;
+}
+ 
+.contact-direct {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.7s both;
+}
+ 
+.direct-label {
+    color: #38b6ff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+ 
+.direct-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.direct-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #38b6ff;
+}
+
+.direct-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #38b6ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.direct-link:hover,
+.direct-link:focus-visible {
+    color: #63c8ff;
+    text-decoration: underline;
+}
+
+.direct-note {
+    font-size: 0.8rem;
+    color: #8b90b0;
+    margin-bottom: 20px;
+}
+
+.direct-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    color: #c9cde0;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #6ee7a8;
+    flex-shrink: 0;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .status-dot {
+        animation: none;
+    }
+}
+ 
+/* ===== Footer ===== */
+.footer {
+    text-align: right;
+    padding: 20px 48px;
+    font-size: 0.85rem;
+    color: #4db8ff;
+}
+ 
+/* ===== Responsive ===== */
+@media (max-width: 780px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+ 
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+ 
+    .right-nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+ 
+    .body {
+        padding: 24px 20px 80px;
+    }
+ 
+    .opener {
+        font-size: 2rem;
+    }
+ 
+    .footer {
+        text-align: center;
+    }
+}

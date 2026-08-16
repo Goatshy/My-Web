@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Contact</title>
+    <link rel="shortcut icon" type="icon" href="Logo.jpg">
+    <link rel="stylesheet" href="style-contact.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "ACwMmR6wC6rCY804X",
+        });
+    })();
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left-nav">
+            <p>Ghazy El Zhirazy Hisyam</p>
+        </div>
+        <div class="right-nav">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="body">
+        <p class="eyebrow">Contact</p>
+        <h1 class="opener">Get in touch</h1>
+        <p class="descript">Got a project idea, question, or just want to say hi? Send a message below.</p>
+
+        <div class="contact-layout">
+            <form class="contact-form" id="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+
+                <button type="submit" id="submit-btn" >Send message</button>
+                <p class="form-status" id="form-status"></p>
+            </form>
+
+            <div class="contact-direct">
+                <p class="direct-label">Or reach me directly</p>
+
+                <div class="direct-row">
+                    <svg class="direct-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6Z"/></svg>
+                    <a class="direct-link" href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
+                </div>
+
+                <div class="direct-row">
+                    <svg class="direct-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12"/><path d="M10 13a4 4 0 0 1 8 0v8"/></svg>
+                    <a class="direct-link" href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">linkedin.com/in/ghazyel</a>
+                </div>
+
+                <p class="direct-note">Usually responds within a few days.</p>
+
+                <div class="direct-status">
+                    <span class="status-dot"></span>
+                    <span>Open to internships and collaborations</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy;2026 Ghazy El</p>
+    </div>
+
+    <script src="contact.js"></script>
+</body>
+</html>
