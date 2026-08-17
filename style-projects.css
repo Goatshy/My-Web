@@ -239,7 +239,6 @@ body > div:last-of-type {
     opacity: 0;
     animation: fadeSlideUp 0.7s ease-out both;
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-    /* project-row is now an <a> tag, so reset default link styling */
     text-decoration: none;
     color: inherit;
     cursor: pointer;
@@ -394,6 +393,23 @@ body > div:last-of-type {
 }
 
 /* Responsive */
+@media (max-width: 780px) {
+    .project-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .project-index {
+        flex: none;
+    }
+
+    .project-row-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
 @media (max-width: 640px) {
     .navbar {
         flex-direction: column;
@@ -407,24 +423,16 @@ body > div:last-of-type {
         justify-content: center;
     }
 
-    .main {
+    .body {
+        padding: 24px 20px 80px;
+    }
+
+    .opener {
         font-size: 2rem;
     }
 
-    .cta-row {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .work-button,
-    .secondary-button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .stats-row {
-        flex-direction: column;
-        gap: 20px;
+    .project-row {
+        padding: 24px;
     }
 
     .footer {
