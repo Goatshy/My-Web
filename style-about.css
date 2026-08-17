@@ -1,4 +1,4 @@
-/* ===== Custom scrollbar ===== */
+/* scrollbar */
 html {
     scrollbar-width: thin;
     scrollbar-color: #38b6ff rgba(255, 255, 255, 0.06);
@@ -77,7 +77,7 @@ body > div:last-of-type {
     z-index: 1;
 }
 
-/* ===== Load-in animation (matches the homepage) ===== */
+/* Load-in animation */
 @keyframes fadeSlideUp {
     from {
         opacity: 0;
@@ -104,7 +104,7 @@ body > div:last-of-type {
     }
 }
 
-/* ===== Navbar ===== */
+/* navbar */
 .navbar {
     position: sticky;
     top: 0;
@@ -183,14 +183,13 @@ body > div:last-of-type {
     color: #071022;
 }
 
-/* ===== Page body wrapper ===== */
+/* Page body */
 .body {
     padding: 28px 48px 100px;
     position: relative;
 }
 
-/* Decorative PCB-trace illustration filling the empty right column.
-   Pure CSS background-image (inline SVG), no extra HTML required. */
+/* Decorative  */
 .body::before {
     content: "";
     position: absolute;
@@ -214,7 +213,7 @@ body > div:last-of-type {
     z-index: 1;
 }
 
-/* ===== About / Background section ===== */
+/* AboutSection */
 .about-section {
     max-width: 760px;
     margin-bottom: 48px;
@@ -257,7 +256,7 @@ body > div:last-of-type {
     margin-bottom: 0;
 }
 
-/* ===== Education section ===== */
+/* Education */
 .education-section {
     max-width: 720px;
     margin-bottom: 56px;
@@ -278,9 +277,7 @@ body > div:last-of-type {
     max-width: 560px;
 }
 
-/* Each entry (.university, .highschool, .middleschool, ...) is a flat
-   set of 3 <p> siblings: periode, content (title), content (institution).
-   Grid lets us place them into a 2-column layout without changing the HTML. */
+/* Timeline */
 .timeline > div {
     display: grid;
     grid-template-columns: 110px 1fr;
@@ -326,7 +323,7 @@ body > div:last-of-type {
     color: #c9cde0;
 }
 
-/* ===== Tools section ===== */
+/* Tools */
 .tools {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -414,7 +411,7 @@ body > div:last-of-type {
     transition: color 0.25s ease;
 }
  
-/* ===== Footer ===== */
+/* Footer */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -458,7 +455,7 @@ body > div:last-of-type {
     color: #8b90b0;
 }
  
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 900px) {
     .tools {
         grid-template-columns: repeat(2, minmax(0, 1fr));
