@@ -1,4 +1,30 @@
-/* ===== Reset & base ===== */
+/* ===== Custom scrollbar ===== */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #38b6ff rgba(255, 255, 255, 0.06);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #38b6ff;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #63c8ff;
+    background-clip: content-box;
+}
+
+/* Base*/
 * {
     margin: 0;
     padding: 0;
@@ -95,10 +121,16 @@ body::after {
 
 /* ===== Navbar ===== */
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 48px;
+    background: rgba(10, 14, 39, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .left-nav p {
@@ -136,7 +168,6 @@ body::after {
     color: #4db8ff;
 }
 
-/* Animated underline for nav links, not the Contact pill button */
 .right-nav a:not([href*="mail"])::after {
     content: "";
     position: absolute;
@@ -151,6 +182,20 @@ body::after {
 .right-nav a:not([href*="mail"]):hover::after,
 .right-nav a:not([href*="mail"]):focus-visible::after {
     width: 100%;
+}
+
+.right-nav a[href*="mail"] {
+    background: #38b6ff;
+    color: #071022;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 999px;
+}
+
+.right-nav a[href*="mail"]:hover,
+.right-nav a[href*="mail"]:focus-visible {
+    background: #63c8ff;
+    color: #071022;
 }
 
 /* ===== Hero body ===== */

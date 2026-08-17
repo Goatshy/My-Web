@@ -1,3 +1,30 @@
+/* ===== Custom scrollbar ===== */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #38b6ff rgba(255, 255, 255, 0.06);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #38b6ff;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #63c8ff;
+    background-clip: content-box;
+}
+    
+/* Base */
 * {
     margin: 0;
     padding: 0;
@@ -7,23 +34,40 @@
 body {
     font-family: "TT Firs Neue", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
+    background: #0a0e27;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow-x: hidden;
-    /* Tied to the full document height (not the viewport), so the purple
-       gets thicker/richer the further down the page you scroll. */
-    background: linear-gradient(
-        180deg,
-        #0a0e27 0%,
-        #12153a 15%,
-        #1c1a48 30%,
-        #2c1c5c 48%,
-        #3f2478 65%,
-        #522d90 82%,
-        #6c3b9d 100%
-    );
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55vh;
+    background: linear-gradient(180deg, #5548a0 0%, #7566c0 50%, #9a8bd8 100%);
+    background-size: 100% 220%;
+    background-position: 0% 20%;
+    animation: gradientShift 16s ease-in-out infinite;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55vh;
+    background: linear-gradient(180deg, #0a0e27 0%, #0a0e27 12%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .navbar,
@@ -62,10 +106,16 @@ body > div:last-of-type {
 
 /* ===== Navbar ===== */
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 48px;
+    background: rgba(10, 14, 39, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .left-nav p {
