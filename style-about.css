@@ -283,7 +283,7 @@ body > div:last-of-type {
     gap: 16px;
     max-width: 760px;
 }
-
+ 
 .tools-title {
     grid-column: 1 / -1;
     color: #38b6ff;
@@ -295,43 +295,75 @@ body > div:last-of-type {
     opacity: 0;
     animation: fadeSlideUp 0.7s ease-out 1.3s both;
 }
-
+ 
 .tool-card {
+    position: relative;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 12px;
-    padding: 18px 20px;
+    padding: 18px 20px 18px 24px;
+    overflow: hidden;
+    cursor: default;
     opacity: 0;
     animation: fadeSlideUp 0.7s ease-out both;
-    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
-
+ 
+.tool-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #38b6ff;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+ 
 .tool-card:nth-of-type(1) { animation-delay: 1.35s; }
 .tool-card:nth-of-type(2) { animation-delay: 1.4s; }
 .tool-card:nth-of-type(3) { animation-delay: 1.45s; }
 .tool-card:nth-of-type(4) { animation-delay: 1.5s; }
 .tool-card:nth-of-type(5) { animation-delay: 1.55s; }
 .tool-card:nth-of-type(6) { animation-delay: 1.6s; }
-
+ 
 .tool-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-6px) scale(1.03);
     border-color: #38b6ff;
-    background: rgba(56, 182, 255, 0.08);
-    color: #ffffff;
+    background: rgba(56, 182, 255, 0.1);
+    box-shadow: 0 14px 30px rgba(56, 182, 255, 0.25);
 }
-
+ 
+.tool-card:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+ 
+.tool-card:hover .tool-name {
+    color: #63c8ff;
+    transform: translateX(2px);
+}
+ 
+.tool-card:hover .tool-desc {
+    color: #e2e5f7;
+}
+ 
 .tool-name {
     color: #38b6ff;
     font-weight: 700;
     font-size: 1rem;
     margin-bottom: 4px;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
-
+ 
 .tool-desc {
     color: #c9cde0;
     font-size: 0.85rem;
+    transition: color 0.25s ease;
 }
-
+ 
 /* ===== Footer ===== */
 .footer {
     display: flex;
@@ -342,87 +374,87 @@ body > div:last-of-type {
     padding: 24px 48px;
     font-size: 0.85rem;
 }
-
+ 
 .footer-name {
     font-weight: 700;
     color: #ffffff;
     font-size: 0.9rem;
 }
-
+ 
 .footer-tagline {
     color: #8b90b0;
     font-size: 0.8rem;
 }
-
+ 
 .footer-right {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-
+ 
 .footer-right a {
     color: #4db8ff;
     text-decoration: none;
     transition: color 0.2s ease;
 }
-
+ 
 .footer-right a:hover,
 .footer-right a:focus-visible {
     color: #63c8ff;
     text-decoration: underline;
 }
-
+ 
 .footer-right span {
     color: #8b90b0;
 }
-
+ 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
     .tools {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
-
+ 
 @media (max-width: 640px) {
     .navbar {
         flex-direction: column;
         gap: 16px;
         padding: 20px;
     }
-
+ 
     .right-nav {
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
     }
-
+ 
     .body {
         padding: 24px 20px 80px;
     }
-
+ 
     .background {
         font-size: 2rem;
     }
-
+ 
     .timeline > div {
         grid-template-columns: 1fr;
         row-gap: 6px;
     }
-
+ 
     .timeline > div p.periode {
         grid-row: 1;
     }
-
+ 
     .tools {
         grid-template-columns: 1fr;
     }
-
+ 
     .footer {
         flex-direction: column;
         text-align: center;
         padding: 20px;
     }
-
+ 
     .body::before {
         display: none;
     }
