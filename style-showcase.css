@@ -1,30 +1,3 @@
-/* scrollbar */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: #38b6ff rgba(255, 255, 255, 0.06);
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.06);
-}
-
-::-webkit-scrollbar-thumb {
-    background: #38b6ff;
-    border-radius: 999px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #63c8ff;
-    background-clip: content-box;
-}
-
-/* Base*/
 * {
     margin: 0;
     padding: 0;
@@ -34,40 +7,20 @@ html {
 body {
     font-family: "TT Firs Neue", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
-    background: #0a0e27;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow-x: hidden;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 55vh;
-    background: linear-gradient(180deg, #5548a0 0%, #7566c0 50%, #9a8bd8 100%);
-    background-size: 100% 220%;
-    background-position: 0% 20%;
-    animation: gradientShift 16s ease-in-out infinite;
-    opacity: 0.55;
-    pointer-events: none;
-    z-index: 0;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 55vh;
-    background: linear-gradient(180deg, #0a0e27 0%, #0a0e27 12%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+    background: linear-gradient(
+        180deg,
+        #0a0e27 0%,
+        #15173c 15%,
+        #241f52 32%,
+        #35236a 50%,
+        #472a80 68%,
+        #3a2264 100%
+    );
 }
 
 .navbar,
@@ -77,7 +30,7 @@ body::after {
     z-index: 1;
 }
 
-/* load-in animation */
+/* ===== Load-in animation (matches Home, About, and Projects pages) ===== */
 @keyframes fadeSlideUp {
     from {
         opacity: 0;
@@ -104,18 +57,12 @@ body::after {
     }
 }
 
-/* Navbar */
+/* ===== Navbar (same as the rest of the site) ===== */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 48px;
-    background: rgba(10, 14, 39, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .left-nav p {
@@ -183,7 +130,7 @@ body::after {
     color: #071022;
 }
 
-/* Page Body */
+/* ===== Page body wrapper ===== */
 .body {
     display: flex;
     align-items: flex-start;
@@ -196,9 +143,46 @@ body::after {
     max-width: 700px;
 }
 
-.showcase-embed {
+.spec-stats {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.45s both;
+}
+
+.spec-stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8b90b0;
+    margin-bottom: 6px;
+}
+
+.spec-stat-value {
+    font-family: "Telegraf", "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #38b6ff;
+}
+
+.showcase-embed-wrapper {
     flex: 1 1 400px;
     max-width: 560px;
+    position: sticky;
+    top: 28px;
+}
+
+.embed-hint {
+    font-size: 0.85rem;
+    color: #c9cde0;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.3s both;
+}
+
+.showcase-embed {
     aspect-ratio: 4 / 3;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -207,8 +191,6 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    top: 28px;
     opacity: 0;
     animation: fadeSlideUp 0.7s ease-out 0.35s both;
 }
@@ -227,7 +209,7 @@ body::after {
     padding: 24px;
 }
 
-/* Back to Projects link */
+/* "Back to projects" link */
 .showcase-content > a[href="Projects.html"] {
     display: inline-block;
     color: #38b6ff;
@@ -256,7 +238,7 @@ body::after {
     animation: fadeSlideUp 0.7s ease-out 0.4s both;
 }
 
-/* label style*/
+/* Both "Why i built this" and "Components" share this label style */
 .body h3 {
     color: #4db8ff;
     font-weight: 600;
@@ -308,7 +290,7 @@ body::after {
 
 .components-list p {
     background: #38b6ff;
-    color: #ffffff;
+    color: #071022;
     font-weight: 600;
     font-size: 0.85rem;
     padding: 7px 16px;
@@ -326,6 +308,14 @@ body::after {
 .components-list p:nth-child(7) { animation-delay: 1.08s; }
 .components-list p:nth-child(8) { animation-delay: 1.11s; }
 
+.components-list p:hover {
+  transform: translateY(-3px) scale(1.05);
+    background: #63c8ff;
+    box-shadow: 0 6px 14px rgba(56, 182, 255, 0.35);
+    color: #ffffff;
+}
+
+/* "View Projects" link, styled as a compact button */
 .showcase-content > a[href*="wokwi"] {
     display: inline-block;
     background: #38b6ff;
@@ -342,26 +332,53 @@ body::after {
 
 .showcase-content > a[href*="wokwi"]:hover,
 .showcase-content > a[href*="wokwi"]:focus-visible {
+    transform: translateY(-3px) scale(1.05);
     background: #63c8ff;
-    transform: translateY(-1px);
-    color: #ffffff
+    box-shadow: 0 6px 14px rgba(56, 182, 255, 0.35);
+    color: #ffffff;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
     padding: 20px 48px;
     font-size: 0.85rem;
-    color: #4db8ff;
 }
 
-/* Responsive */
+.footer-name {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-right a {
+    color: #4db8ff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-right a:hover,
+.footer-right a:focus-visible {
+    color: #63c8ff;
+    text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
     .body {
         flex-direction: column;
     }
 
-    .showcase-embed {
+    .showcase-embed-wrapper {
         position: static;
         width: 100%;
         max-width: 100%;
@@ -389,7 +406,13 @@ body::after {
         font-size: 2rem;
     }
 
+    .spec-stats {
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+
     .footer {
+        flex-direction: column;
         text-align: center;
     }
 }
