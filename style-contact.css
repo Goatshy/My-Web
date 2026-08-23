@@ -446,7 +446,7 @@ body::after {
     color: #8b90b0;
 }
  
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 780px) {
     .contact-layout {
         grid-template-columns: 1fr;

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9V LED Dimmer PCB</title>
+    <link rel="shortcut icon" type="icon" href="Logo.jpg">
+    <link rel="stylesheet" href="style-showcase1.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="left-nav">
+            <p>Ghazy El Zhirazy Hisyam</p>
+        </div>
+        <div class="right-nav">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="showcase-content">
+            <a href="Projects.html">Back to projects</a>
+            <h1 class="project-name">9V LED Dimmer PCB</h1>
+
+            <div class="spec-stats">
+                <div class="spec-stat">
+                    <p class="spec-stat-label">Input</p>
+                    <p class="spec-stat-value">9V Battery</p>
+                </div>
+                <div class="spec-stat">
+                    <p class="spec-stat-label">Control</p>
+                    <p class="spec-stat-value">Potentiometer</p>
+                </div>
+                <div class="spec-stat">
+                    <p class="spec-stat-label">Output</p>
+                    <p class="spec-stat-value">LED</p>
+                </div>
+            </div>
+
+            <h3>Why i built this</h3>
+            <p class="learned">I built this to learn about PCB design and to learn how to use KiCad as my design tool for PCB design.</p>
+            <p class="learned">It also became my first ever PCB design project. I learned to calculate component values, routing, assigning footprints, and generating manufacturing files.</p>
+            <h3>How it works</h3>
+            <p class="learned">The potentiometer acts as a variable resistor, which controls the amount of current flowing to the LED. By adjusting the potentiometer, you can dim or brighten the LED.</p>
+            <p class="learned">The resistor is used to limit the current flowing through the LED, preventing it from burning out. The 2-pin connector is used to connect the battery to the circuit.</p>
+            <h3>Steps to Build</h3>
+            <p class="learned">1. Design the circuit schematic in KiCad.</p>
+            <p class="learned">2. Assign footprints to the components and update the PCB layout from the schematic.</p>
+            <p class="learned">3. Run electrical rule check (ERC) to make sure there are no errors.</p>
+            <p class="learned">4. Draw the physical outline (border) of your circuit board.</p>
+            <p class="learned">5. Route the connections and create a ground plane.</p>
+            <p class="learned">6. Run design rule check (DRC) to make sure there are no errors.</p>
+            <p class="learned">7. Generate the Gerber files and drill files for manufacturing.</p>
+            <h3 class="components">Components</h3>
+            <div class="components-list">
+                <p>Resistor (330Ω)</p>
+                <p>Potentiometer(1kΩ)</p>
+                <p>2-Pin Connector</p>
+                <p>LED</p>
+            </div>
+            <a href="https://github.com/Goatshy/9V-LED-dimmer-pcb" target="_blank" rel="noopener noreferrer">View Design Project</a>
+        </div>
+
+        <div class="visual-embed-wrapper">
+            <p class="embed-hint">Drag to rotate the 3D model below. <br> Click the 3D button on the top right corner to view it in full screen.</p>
+
+            <div class="model-visual-embed">
+                <model-viewer alt="3D model" src="3D/9V_LED_Dimmer.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>
+            </div>
+
+            <div class="flat-visual-embed">
+                <div class="flat-schematic-embed">
+                    <img src="img/pcb.png" alt="PCB" class="pcb-image">
+                </div>
+                <div class="flat-pcb-embed">
+                    <img src="img/led_dimmer_sch.png" alt="Schematic" class="schematic-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-left">
+            <p class="footer-name">&copy;2026 Ghazy El Zhirazy Hisyam</p>
+        </div>
+        <div class="footer-right">
+            <a href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </div>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+</body>
+</html>

@@ -41,7 +41,19 @@
 
             <h3>Why i built this</h3>
             <p class="learned">I wanted to see how a button, an LED, and a timer actually talk to each other on one board, not just wire a single sensor and call it done.</p>
-            <p class="learned">Right now it's a one-player test, but I built the logic so it can scale: more inputs, a scoreboard, multiple players on one circuit.</p>
+            <p class="learned">The project also help me study how to generate a random delay and learn to measure time in milliseconds.</p>
+            <h3>How it works</h3>
+            <p class="learned">The Arduino waits for a random time, then turns off the green LED and starts the timer. The player must press the button as fast as possible. The Arduino stops the timer and displays the reaction time on the LCD.</p>
+            <p class="learned">If the player presses the button before the green LED turns off, the LED will reset and the player will have to wait for the next round.</p>
+            <h3>Steps to build</h3>
+            <p class="learned">1. Gather all the components.</p>
+            <p class="learned">2. Connect the Arduino to the breadboard.</p>
+            <p class="learned">3. Wire the LEDs, button, and buzzer to each other and to the Arduino.</p>
+            <p class="learned">4. Connect the LCD to the Arduino.</p>
+            <p class="learned">5. Code the delay between the LED's and generate the random time for the green LED.</p>
+            <p class="learned">6. Make the LED's reset after each round or if the button is pressed too early.</p>
+            <p class="learned">7. Measure the time between the green LED turning off and the button being pressed.</p>
+            <p class="learned">8. Display the reaction time on the LCD.</p>
             <h3 class="components">Components</h3>
             <div class="components-list">
                 <p>Arduino</p>
