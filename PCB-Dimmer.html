@@ -41,19 +41,21 @@
             </div>
 
             <h3>Why i built this</h3>
-            <p class="learned">I built this to learn about PCB design and to learn how to use KiCad as my design tool for PCB design.</p>
-            <p class="learned">It also became my first ever PCB design project. I learned to calculate component values, routing, assigning footprints, and generating manufacturing files.</p>
+            <p class="learned">This is my first PCB design project. I wanted to learn KiCad and figure out how to build a working circuit from scratch, so future Arduino projects can move from breadboard sprawl to something simpler and more compact.</p>
+            <p class="learned">With this project, i learned to calculate component values, routing, assigning footprints, and generating manufacturing files.</p>
             <h3>How it works</h3>
             <p class="learned">The potentiometer acts as a variable resistor, which controls the amount of current flowing to the LED. By adjusting the potentiometer, you can dim or brighten the LED.</p>
             <p class="learned">The resistor is used to limit the current flowing through the LED, preventing it from burning out. The 2-pin connector is used to connect the battery to the circuit.</p>
             <h3>Steps to Build</h3>
-            <p class="learned">1. Design the circuit schematic in KiCad.</p>
-            <p class="learned">2. Assign footprints to the components and update the PCB layout from the schematic.</p>
-            <p class="learned">3. Run electrical rule check (ERC) to make sure there are no errors.</p>
-            <p class="learned">4. Draw the physical outline (border) of your circuit board.</p>
-            <p class="learned">5. Route the connections and create a ground plane.</p>
-            <p class="learned">6. Run design rule check (DRC) to make sure there are no errors.</p>
-            <p class="learned">7. Generate the Gerber files and drill files for manufacturing.</p>
+            <p class="learned">1. Define the components — 9V supply, 5mm LED (~2V forward voltage, ~20mA), 330Ω resistor, 1kΩ potentiometer.</p>
+            <p class="learned">2. Draw the schematics, J1 to +9V/GND, then through RV1, R1 (330Ω), and D1 back to GND, using the real (non-SPICE) potentiometer symbol.</p>
+            <p class="learned">3. Add a PWR_FLAG on +9V and one on GND.</p>
+            <p class="learned">4. Run electrical rule check (ERC) until there are 0 violations.</p>
+            <p class="learned">5. Assign footprints for all components.</p>
+            <p class="learned">6. Update the PCB layout from the schematic, draw the edge cuts, and arrange the components.</p>
+            <p class="learned">7. Route all traces on the front copper layer, from J1 through RV1, R1, and D1.</p>
+            <p class="learned">8. Add a filled ground zone on the front copper layer, assigned to the GND net.</p>
+            <p class="learned">9. Run design rule check (DRC) until there are 0 errors, then generate the Gerber and drill files.</p>
             <h3 class="components">Components</h3>
             <div class="components-list">
                 <p>Resistor (330Ω)</p>
@@ -65,7 +67,7 @@
         </div>
 
         <div class="visual-embed-wrapper">
-            <p class="embed-hint">Drag to rotate the 3D model below. <br> Click the 3D button on the top right corner to view it in full screen.</p>
+            <p class="embed-hint">Drag to rotate the 3D model below. <br> Scroll to zoom.</p>
 
             <div class="model-visual-embed">
                 <model-viewer alt="3D model" src="3D/9V_LED_Dimmer.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>

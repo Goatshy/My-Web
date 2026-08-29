@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Night Light PCB</title>
+    <link rel="shortcut icon" type="icon" href="Logo.jpg">
+    <link rel="stylesheet" href="style-showcase1.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="left-nav">
+            <p>Ghazy El Zhirazy Hisyam</p>
+        </div>
+        <div class="right-nav">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="showcase-content">
+            <a href="Projects.html">Back to projects</a>
+            <h1 class="project-name">Automatic Night Light PCB</h1>
+
+            <div class="spec-stats">
+                <div class="spec-stat">
+                    <p class="spec-stat-label">Input</p>
+                    <p class="spec-stat-value">9V Battery</p>
+                </div>
+                <div class="spec-stat">
+                    <p class="spec-stat-label">Control</p>
+                    <p class="spec-stat-value">Light Dependent Resistor (LDR)</p>
+                </div>
+                <div class="spec-stat">
+                    <p class="spec-stat-label">Output</p>
+                    <p class="spec-stat-value">LED</p>
+                </div>
+            </div>
+
+            <h3>Why i built this</h3>
+            <p class="learned">I built this to learn more about the principles of automatic systems and to explore more components.</p>
+            <p class="learned">With this project, i learn how components like comparator and transistor process an input signal and control the output.</p>
+            <h3>How it works</h3>
+            <p class="learned">The LDR (Light Dependent Resistor) changes its resistance based on the amount of light it receives. When it's dark, the resistance is high, and when it's bright, the resistance is low.</p>
+            <p class="learned">When the LDR detects low light (darkness), its resistance increases, which triggers the comparator to turn on the LED. Conversely, when the LDR detects high light (brightness), its resistance decreases, and the LED turns off.</p>
+            <h3>Steps to Build</h3>
+            <p class="learned">1. Gather the components for the schematic.</p>
+            <p class="learned">2. Connect the components to each other and also to a power source or ground.</p>
+            <p class="learned">3. Run electrical rule check (ERC) to make sure there are no errors.</p>
+            <p class="learned">4. Update the PCB layout from the schematic.</p>
+            <p class="learned">5. Arrange the components on the PCB and Draw the physical outline (border) of your circuit board.</p>
+            <p class="learned">6. Route the connections and create a ground plane and run design rule check (DRC) to make sure there are no errors</p>
+            <p class="learned">7. Switch to a different layer to connect the blocked routes.</p>
+            <p class="learned">8. Add filled zone and generate the Gerber files and drill files for manufacturing</p>
+            <h3 class="components">Components</h3>
+            <div class="components-list">
+                <p>2-Pin Connector</p>
+                <p>Electrolytic Capacitor 1 (100μF)</p>
+                <p>Ceramic Capacitor 2 (100nF)</p>
+                <p>(R1)Resistor 1 (10kΩ)</p>
+                <p>(R2)Resistor 2 (330Ω)</p>
+                <p>(R3)Resistor 3 (4.7kΩ)</p>
+                <p>(R4)Light Dependent Resistor (LDR)</p>
+                <p>(R5)Resistor 5 (4.7kΩ)</p>
+                <p>Potentiometer (10kΩ)</p>
+                <p>Comparator</p>
+                <p>Transistor</p>
+                <p>LED</p>
+            </div>
+            <a href="https://github.com/Goatshy/AUTOMATIC-NIGHT-LED-PCB" target="_blank" rel="noopener noreferrer">View Design Project</a>
+        </div>
+
+        <div class="visual-embed-wrapper">
+            <p class="embed-hint">Drag to rotate the 3D model below. <br> Scroll to zoom.</p>
+
+            <div class="model-visual-embed">
+                <model-viewer alt="3D model" src="3D/Automatic _Night_Light.wrl.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>
+            </div>
+
+            <div class="flat-visual-embed">
+                <div class="flat-pcb-embed">
+                    <img src="img/pCB 2.png" alt="PCB" class="pcb-image">
+                </div>
+                <div class="flat-schematic-embed">
+                    <img src="img/AutoLight.png" alt="Schematic" class="schematic-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-left">
+            <p class="footer-name">&copy;2026 Ghazy El Zhirazy Hisyam</p>
+        </div>
+        <div class="footer-right">
+            <a href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </div>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+</body>
+</html>

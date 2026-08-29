@@ -40,19 +40,22 @@
             </div>
 
             <h3>Why i built this</h3>
-            <p class="learned">I built this to combine three components: sensor, servo, and output into one system that actually communicates, instead of each part working alone.</p>
-            <p class="learned">It also became my test for scalability: more sensors, a proper mapping display, or wireless data transmission are all next steps from the same base.</p>
+            <p class="learned">I wanted to try out an ultrasonic sensor and see how it works, close to how bats use echolocation, while also learning to control a servo.</p>
+            <p class="learned">This project doubles as a base for bigger applications — automation, IoT, object detection, or even something closer to a defense radar system.</p>
             <h3>How it works</h3>
-            <p class="learned">The servo sweeps the ultrasonic sensor from 0 to 180 degrees. The sensor measures the distance to the nearest object and sends that data to the Arduino.</p>
-            <p class="learned">The Arduino then lights up the corresponding number of LEDs based on the distance measured. The farther the object, the more LEDs will be lit indicating certain thresholds.</p>
+            <p class="learned">The servo sweeps the ultrasonic sensor from 0 to 180 degrees, then back from 180 to 0. At each angle, the sensor sends out an ultrasonic wave and times how long it takes to bounce back, converting that into a distance reading.</p>
+            <p class="learned">The angle and distance show on the LCD. The Arduino also runs a danger meter: the closer the object, the fewer LEDs light up, down to a single red LED at close range, and the farther away, the more LEDs light up, up to all 5 at a safe distance. Exact thresholds are in the code, lines 67-100.</p>
             <h3>Steps to build</h3>
-            <p class="learned">1. Gather all the components.</p>
-            <p class="learned">2. Connect the Arduino to the breadboard.</p>
-            <p class="learned">3. Wire the ultrasonic sensor, servo, and LEDs to each other and to the Arduino.</p>
-            <p class="learned">4. Code the ultrasonic sensor to measure distance and send that data to the Arduino.</p>
-            <p class="learned">5. Code the servo to sweep from 0 to 180 degrees and back.</p>
-            <p class="learned">6. Display the distance measured and the angle on the LCD.</p>
-            <p class="learned">7. Code the Arduino to light up the corresponding number of LEDs based on the distance.</p>
+            <p class="learned">1. Gather all the components. Arduino, HC-SR04 ultrasonic sensor, servo motor, 5 LEDs, resistors, I2C LCD, breadboard, jumper wires.</p>
+            <p class="learned">2. Wire the ultrasonic sensor: VCC to power, GND to ground, trig and echo to digital pins 3 and 2.</p>
+            <p class="learned">3. Wire the servo: power, ground, and signal to digital pin 4.</p>
+            <p class="learned">4. Wire the 5 LEDs to digital pins 5 through 9, each through a resistor.</p>
+            <p class="learned">5. Wire the I2C LCD: SDA and SCL to the Arduino's I2C pins, VCC to 5V, GND to ground.</p>
+            <p class="learned">6. Set up pin modes, attach the servo, and initialize the LCD with a startup message in setup().</p>
+            <p class="learned">7. Code a loop that sweeps the servo from 0 to 180 degrees, then back from 180 to 0, in 10-degree steps.</p>
+            <p class="learned">8. At each angle, trigger the ultrasonic sensor and calculate distance from the echo pulse duration.</p>
+            <p class="learned">9. Set distance thresholds and light 1 to 5 LEDs based on proximity, fewer LEDs when close, more when far.</p>
+            <p class="learned">10. Display the current angle and distance on the LCD and Serial monitor.</p>
             <h3 class="components">Components</h3>
             <div class="components-list">
                 <p>Arduino</p>

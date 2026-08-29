@@ -331,10 +331,12 @@ body > div:last-of-type {
     animation: fadeSlideUp 0.7s ease-out 0.4s both;
 }
 
+/* Gap above each section heading, so it doesn't crowd the previous paragraph */
 .body h3 {
     color: #4db8ff;
     font-weight: 600;
     font-size: 1.1rem;
+    margin-top: 32px;
     margin-bottom: 10px;
     opacity: 0;
     animation: fadeSlideUp 0.7s ease-out both;
@@ -354,6 +356,13 @@ body > div:last-of-type {
     animation: fadeSlideUp 0.7s ease-out both;
 }
 
+/* Numbered "Steps to Build" items: hanging indent so wrapped
+   lines align under the text, not back under the number. */
+.learned.step {
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+}
+
 .learned:nth-of-type(1) { animation-delay: 0.6s; }
 .learned:nth-of-type(2) { animation-delay: 0.7s; }
 .learned:nth-of-type(3) { animation-delay: 0.8s; }
@@ -363,7 +372,9 @@ body > div:last-of-type {
 .learned:nth-of-type(7) { animation-delay: 1.2s; }
 .learned:nth-of-type(8) { animation-delay: 1.3s; }
 .learned:nth-of-type(9) { animation-delay: 1.4s; }
-.learned:nth-of-type(10) { animation-delay: 1.5s;}
+.learned:nth-of-type(10) {  animation-delay: 1.5s; }
+.learned:nth-of-type(11) {  animation-delay: 1.6s; }
+.learned:nth-of-type(12) {  animation-delay: 1.7s; }
 
 .learned:last-of-type {
     margin-bottom: 28px;
@@ -409,6 +420,10 @@ body > div:last-of-type {
 .components-list p:nth-child(6) { animation-delay: 1.05s; }
 .components-list p:nth-child(7) { animation-delay: 1.08s; }
 .components-list p:nth-child(8) { animation-delay: 1.11s; }
+.components-list p:nth-child(9) { animation-delay: 1.14s; }
+.components-list p:nth-child(10) { animation-delay: 1.17s; }
+.components-list p:nth-child(11) { animation-delay: 1.20s; }
+.components-list p:nth-child(12) { animation-delay: 1.23s; }
 
 .components-list p:hover {
     transform: translateY(-3px) scale(1.05);
@@ -448,6 +463,7 @@ body > div:last-of-type {
     gap: 12px;
     padding: 20px 48px;
     font-size: 0.85rem;
+    margin-top: auto;
 }
 
 .footer-name {

@@ -333,6 +333,7 @@ body::after {
     gap: 12px;
     padding: 24px 48px;
     font-size: 0.85rem;
+    margin-top: auto;
 }
 
 .footer-name {

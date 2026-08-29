@@ -40,19 +40,20 @@
             </div>
 
             <h3>Why i built this</h3>
-            <p class="learned">I wanted to see how a button, an LED, and a timer actually talk to each other on one board, not just wire a single sensor and call it done.</p>
-            <p class="learned">The project also help me study how to generate a random delay and learn to measure time in milliseconds.</p>
+            <p class="learned">I wanted to understand how timers work on Arduino and how to generate a random delay instead of a fixed one.</p>
+            <p class="learned">I also wanted to practice measuring time in milliseconds and get comfortable with basic components — button, LED, resistor, LCD. This is my first Arduino simulation project, so it's the starting point before I try anything more complex.</p>
             <h3>How it works</h3>
-            <p class="learned">The Arduino waits for a random time, then turns off the green LED and starts the timer. The player must press the button as fast as possible. The Arduino stops the timer and displays the reaction time on the LCD.</p>
+            <p class="learned">The red and yellow LEDs turn off after a fixed delay. The green LED turns off after a random delay between 0.9 and 4.5 seconds. The player has to press the button the moment the green LED turns off.</p>
             <p class="learned">If the player presses the button before the green LED turns off, the LED will reset and the player will have to wait for the next round.</p>
+            <p class="learned">Once the green LED turns off, the timer starts. Pressing the button stops it and the reaction time shows on the LCD.</p>
             <h3>Steps to build</h3>
             <p class="learned">1. Gather all the components.</p>
-            <p class="learned">2. Connect the Arduino to the breadboard.</p>
-            <p class="learned">3. Wire the LEDs, button, and buzzer to each other and to the Arduino.</p>
-            <p class="learned">4. Connect the LCD to the Arduino.</p>
-            <p class="learned">5. Code the delay between the LED's and generate the random time for the green LED.</p>
-            <p class="learned">6. Make the LED's reset after each round or if the button is pressed too early.</p>
-            <p class="learned">7. Measure the time between the green LED turning off and the button being pressed.</p>
+            <p class="learned">2. Set up the LEDs and assign their delay values — fixed for red and yellow, random for green.</p>
+            <p class="learned">3. Wire the button: connect two pins to power and ground, then connect the ground pin to a digital input on the Arduino.</p>
+            <p class="learned">4. Work on the LED logic and time measurement — start the timer when the green LED turns off, stop it when the button is pressed.</p>
+            <p class="learned">5. Connect the LCD and display the reaction time.</p>
+            <p class="learned">6. Add the reset logic so the LEDs restart if the button is pressed too early.</p>
+            <p class="learned">7. Add a buzzer to give feedback when the button is pressed.</p>
             <p class="learned">8. Display the reaction time on the LCD.</p>
             <h3 class="components">Components</h3>
             <div class="components-list">
