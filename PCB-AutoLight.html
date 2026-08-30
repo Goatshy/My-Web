@@ -41,21 +41,22 @@
             </div>
 
             <h3>Why i built this</h3>
-            <p class="learned">I built this to learn more about the principles of automatic systems and to explore more components.</p>
-            <p class="learned">With this project, i learn how components like comparator and transistor process an input signal and control the output.</p>
+            <p class="learned">I wanted to go deeper into PCB design and understand more components beyond an LED and a resistor. This project is a starting point for something more useful too, a simple automatic device that reacts to its environment but can still be overridden by hand.</p>
+            <p class="learned">Along the way I learned to use a comparator and a transistor, and how they hand off a signal from one stage to the next instead of one component doing everything alone.</p>
             <h3>How it works</h3>
-            <p class="learned">The LDR (Light Dependent Resistor) changes its resistance based on the amount of light it receives. When it's dark, the resistance is high, and when it's bright, the resistance is low.</p>
-            <p class="learned">When the LDR detects low light (darkness), its resistance increases, which triggers the comparator to turn on the LED. Conversely, when the LDR detects high light (brightness), its resistance decreases, and the LED turns off.</p>
+            <p class="learned">The LDR's resistance drops in light and climbs in darkness, shifting the voltage at one spot in the circuit. The LM393 chip watches that spot against a line you set with the knob, RV1, and constantly checks: above the line, or below it? Cross it, and the chip flips its output from off to on.</p>
+            <p class="learned">That output can't drive the LED directly, its too weak. It opens a valve instead: Q1, the transistor, where a small trickle at its base swings open a much bigger flow from +9V to ground. Open the valve and the LED gets full current. Closed, it gets none. No in-between, no fade — just a switch flipping the instant the room crosses your line.</p>
             <h3>Steps to Build</h3>
-            <p class="learned">1. Gather the components for the schematic.</p>
-            <p class="learned">2. Connect the components to each other and also to a power source or ground.</p>
-            <p class="learned">3. Run electrical rule check (ERC) to make sure there are no errors.</p>
-            <p class="learned">4. Update the PCB layout from the schematic.</p>
-            <p class="learned">5. Arrange the components on the PCB and Draw the physical outline (border) of your circuit board.</p>
-            <p class="learned">6. Route the connections and create a ground plane and run design rule check (DRC) to make sure there are no errors</p>
-            <p class="learned">7. Switch to a different layer to connect the blocked routes.</p>
-            <p class="learned">8. Add filled zone and generate the Gerber files and drill files for manufacturing</p>
-            <h3 class="components">Components</h3>
+            <p class="learned">1. Wire the sensor divider, +9V through R4 (the LDR) to a node, then through R1 (10kΩ) to ground, with the node feeding U1 pin 2 (IN-).</p>
+            <p class="learned">2. Wire the threshold pot: +9V to RV1 pin 1, ground to pin 3, and the wiper (pin 2) to U1 pin 3 (IN+).</p>
+            <p class="learned">3. Power the comparator by connecting pin 8 to +9V, pin 4 to ground, with C2 (100nF) bridging the two right at the chip.</p>
+            <p class="learned">4. Add the pull-up, R3 (4.7kΩ) from +9V to U1 pin 1 (OUT), since the comparator's output is open-collector.</p>
+            <p class="learned">5. Drive the transistor base,R5 (4.7kΩ) from OUT to Q1's base, sized for roughly 0.9mA to saturate it.</p>
+            <p class="learned">6. Wire the LED switch with +9V through R2 (330Ω) through the LED to Q1's collector, with the emitter to ground.</p>
+            <p class="learned">7. Terminate the unused half of the comparator (U1B) by no-connecting its pins so ERC doesn't flag them.</p>
+            <p class="learned">8. Add bulk power filtering: C1 (100µF) across +9V/ground near the input connector.</p>
+            <p class="learned">9. Assign footprints: DIP-8 for the comparator, TO-92 for the transistor, 5mm for the LDR, and match the pot's footprint to the part you're sourcing.</p>
+            <p class="learned">10. Place and route: pot near a board edge, C2 tight against the comparator, LDR clear of the LED's light path, ground poured as a zone, then run ERC and DRC and generate the manufacturing files.</p>
             <div class="components-list">
                 <p>2-Pin Connector</p>
                 <p>Electrolytic Capacitor 1 (100μF)</p>
