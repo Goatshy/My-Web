@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website - About</title>
-    <link rel="stylesheet" href="style-about.css">
-    <link rel="shortcut icon" type="icon" href="Logo.jpg">
+    <title>Ghazy El Zhirazy Hisyam | About</title>
+    <meta name="description" content="Background, education, and tools of Ghazy El Zhirazy Hisyam, an Industrial Electrical Engineering student.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-about.css">
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
 </head>
 <body>
-    <div class="navbar">
+    <header class="navbar">
         <div class="left-nav">
-            <p>Ghazy El Zhirazy Hisyam</p>
+            <a href="index.html" class="brand">
+                <img class="brand-logo" src="Logo.jpg" alt="" width="28" height="28">
+                <span>Ghazy El Zhirazy Hisyam</span>
+            </a>
         </div>
-        <div class="right-nav">
+        <nav class="right-nav" aria-label="Main">
             <a href="index.html">Home</a>
-            <a href="About.html">About</a>
+            <a href="About.html" aria-current="page">About</a>
             <a href="Projects.html">Projects</a>
-            <a href="Contact.html">Contact</a>
-        </div>
-    </div>
-    <div class="body">
-        <div class="about-section">
+            <a href="Contact.html" class="nav-cta">
+                Contact
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </nav>
+    </header>
+
+    <main class="body">
+        <section class="about-section">
             <h2 class="about">About</h2>
             <h1 class="background">Background</h1>
-            <p class="description">My interest in technology began in my final year of middle school, when I started coding and analyzing data. AI was already advancing fast then, and by my second year of high school I realized it could replace the work I was drawn to unless I added another skill. </p>
-            <p class="description">That pushed me into electrical engineering. I started with microcontrollers, and I'm now building on that with PCB design and PLC-based automation, working across hardware, control systems, and manufacturing. Combined with my IT background, I'm now aiming at the intersection of electrical systems, automation, and software.</p>
-        </div>
+            <p class="description">My interest in technology began in my final year of middle school, when I started coding and analyzing data. AI was making rapid progress, and by my second year of high school I realized it could replace the work I was drawn to unless I added another skill.</p>
+            <p class="description">That pushed me into electrical engineering. I started with microcontrollers and have moved on to PCB design and PLC-based automation, which link hardware to control systems and manufacturing. With my IT background, I want work that combines electrical systems and software.</p>
+        </section>
 
-        <div class="education-section">
+        <section class="education-section">
             <h2 class="education">Education</h2>
             <div class="timeline">
                 <div class="university">
                     <p class="periode">2026 - Now</p>
-                    <p class="content">Industrial Electrical Engineering </p>
-                    <p class="content">Diponegoro University </p>
+                    <p class="program">Industrial Electrical Engineering</p>
+                    <p class="school">Diponegoro University</p>
                 </div>
                 <div class="highschool">
                     <p class="periode">2023 - 2026</p>
-                    <p class="content">Engineering Study Program </p>
-                    <p class="content">SMA Negeri 5 Purwokerto </p>
+                    <p class="program">Engineering Study Program</p>
+                    <p class="school">SMA Negeri 5 Purwokerto</p>
                 </div>
                 <div class="middleschool">
                     <p class="periode">2020 - 2023</p>
-                    <p class="content">Regular Program </p>
-                    <p class="content">SMP Al-Azhar Syifa Budi Cibinong </p>
+                    <p class="program">Regular Program</p>
+                    <p class="school">SMP Al-Azhar Syifa Budi Cibinong</p>
                 </div>
             </div>
-        </div>
-        <div class="tools">
-            <h2 class="tools-title">Tools I'm Learning</h2>
+        </section>
+
+        <section class="tools">
+            <h2 class="tools-title">Tools I'm learning</h2>
             <div class="tool-card">
                 <p class="tool-name">Arduino</p>
                 <p class="tool-desc">Microcontroller prototyping</p>
@@ -59,26 +71,29 @@
             </div>
             <div class="tool-card">
                 <p class="tool-name">KiCad</p>
-                <p class="tool-desc">PCB design & layout</p>
+                <p class="tool-desc">PCB design and layout</p>
             </div>
             <div class="tool-card">
                 <p class="tool-name">MATLAB</p>
-                <p class="tool-desc">Analysis & simulation</p>
+                <p class="tool-desc">Analysis and simulation</p>
             </div>
             <div class="tool-card">
                 <p class="tool-name">Basic PLC Logic</p>
                 <p class="tool-desc">Industrial control</p>
             </div>
-        </div>
-    </div>
-    <div class="footer">
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="footer-left">
-            <p class="footer-name">&copy;2026 Ghazy El Zhirazy Hisyam</p>
+            <p class="footer-name">&copy; 2026 Ghazy El Zhirazy Hisyam</p>
         </div>
         <div class="footer-right">
             <a href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
             <a href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-    </div>
+    </footer>
+
+    <script src="script/script-about.js"></script>
 </body>
 </html>

@@ -1,0 +1,514 @@
+:root {
+    --bg: #09090b;
+    --surface: rgba(255, 255, 255, 0.03);
+    --line: rgba(255, 255, 255, 0.09);
+    --line-strong: rgba(255, 255, 255, 0.18);
+    --text: #f5f5f6;
+    --text-muted: #9a9aa2;
+    --text-dim: #6d6d74;
+    --button-bg: #ffffff;
+    --button-bg-hover: #e4e4e7;
+    --button-text: #09090b;
+
+    --font: "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --container: 1280px;
+    --gutter: clamp(20px, 5vw, 48px);
+    /* side padding: content stays inside the container, backgrounds still go edge to edge */
+    --edge: max(var(--gutter), calc((100% - var(--container)) / 2));
+}
+
+/* scrollbar */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a40 transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a3a40;
+    border-radius: 999px;
+    border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #52525a;
+}
+
+/* base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* dot texture at the top of the page, fades out toward the bottom */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75vh;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.4px);
+    background-size: 4px 4px;
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+    pointer-events: none;
+}
+
+.body,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px var(--edge);
+    background: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out 0.05s both;
+}
+
+.brand-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    object-fit: cover;
+    display: block;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.right-nav a {
+    position: relative;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.right-nav a:nth-child(1) { animation-delay: 0.1s; }
+.right-nav a:nth-child(2) { animation-delay: 0.15s; }
+.right-nav a:nth-child(3) { animation-delay: 0.2s; }
+.right-nav a:nth-child(4) { animation-delay: 0.25s; }
+
+.right-nav a:hover,
+.right-nav a:focus-visible,
+.right-nav a[aria-current="page"] {
+    color: var(--text);
+}
+
+/* underline grows from the left on hover */
+.right-nav a:not(.nav-cta)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--text);
+    transition: width 0.25s ease;
+}
+
+.right-nav a:not(.nav-cta):hover::after,
+.right-nav a:not(.nav-cta):focus-visible::after {
+    width: 100%;
+}
+
+/* contact button. Has to sit below the link rules above or its colors lose */
+.right-nav a.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    font-weight: 600;
+    padding: 11px 18px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.right-nav a.nav-cta:hover,
+.right-nav a.nav-cta:focus-visible {
+    background: var(--button-bg-hover);
+    color: var(--button-text);
+}
+
+/* page body */
+.body {
+    flex: 1;
+    width: 100%;
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: clamp(48px, 9vh, 96px) var(--edge) 100px;
+    animation: fadeSlideUp 0.7s ease-out both;
+}
+
+.body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("img/dove.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.70;
+    mask-image: radial-gradient(ellipse 100% 100% at center, #000 0%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.eyebrow {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.opener {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: 16px;
+}
+
+.descript {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-bottom: 48px;
+}
+
+/* two-column layout: form on the left, direct contact card on the right */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.contact-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(16px);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 15px 16px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--line-strong);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-dim);
+}
+
+.contact-form button {
+    background: var(--button-bg);
+    color: var(--button-text);
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: none;
+    padding: 17px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* same lift-and-glow hover as the homepage's primary button */
+.contact-form button:hover:not(:disabled),
+.contact-form button:focus-visible:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.14),
+        0 12px 32px rgba(255, 255, 255, 0.28);
+}
+
+.contact-form button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.14);
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-status {
+    font-size: 0.85rem;
+    margin-top: 12px;
+    min-height: 1.2em;
+}
+
+.form-status.success {
+    color: var(--text);
+}
+
+.form-status.error {
+    color: var(--text-muted);
+}
+
+/* direct contact card */
+.contact-direct {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(16px);
+}
+
+.direct-label {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.direct-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.direct-row:last-of-type {
+    border-bottom: none;
+}
+
+.direct-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+}
+
+.direct-link {
+    font-size: 1.05rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.direct-link:hover,
+.direct-link:focus-visible {
+    color: var(--text-muted);
+    text-decoration: underline;
+}
+
+.direct-note {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 18px 0 20px;
+}
+
+.direct-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--text);
+    flex-shrink: 0;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 24px var(--edge);
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+}
+
+.footer-name {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-right a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-right a:hover,
+.footer-right a:focus-visible {
+    color: var(--text);
+}
+
+/* tablet and phone */
+@media (max-width: 780px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px var(--gutter);
+    }
+
+    .right-nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .right-nav a.nav-cta {
+        padding: 9px 14px;
+    }
+
+    .contact-form,
+    .contact-direct {
+        padding: 24px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand,
+    .right-nav a,
+    .body,
+    .status-dot {
+        animation: none;
+        opacity: 1;
+    }
+}

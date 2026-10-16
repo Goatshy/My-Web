@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9V LED Dimmer PCB</title>
-    <link rel="shortcut icon" type="icon" href="Logo.jpg">
-    <link rel="stylesheet" href="style-showcase1.css">
+    <title>9V LED Dimmer PCB | Ghazy El Zhirazy Hisyam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-showcase1.css">
+    <style> .hero-title::before { background-image: url("css/img/helios.png"); } </style>
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
 </head>
 <body>
-    <div class="navbar">
+    <header class="navbar">
         <div class="left-nav">
-            <p>Ghazy El Zhirazy Hisyam</p>
+            <a href="index.html" class="brand">
+                <img class="brand-logo" src="Logo.jpg" alt="" width="28" height="28">
+                <span>Ghazy El Zhirazy Hisyam</span>
+            </a>
         </div>
-        <div class="right-nav">
+        <nav class="right-nav" aria-label="Main">
             <a href="index.html">Home</a>
             <a href="About.html">About</a>
             <a href="Projects.html">Projects</a>
-            <a href="Contact.html">Contact</a>
-        </div>
-    </div>
+            <a href="Contact.html" class="nav-cta">
+                Contact
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </nav>
+    </header>
 
-    <div class="body">
-        <div class="showcase-content">
-            <a href="Projects.html">Back to projects</a>
+    <main class="body">
+        <a href="Projects.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+            Back to projects
+        </a>
+
+        <section class="hero-title">
             <h1 class="project-name">9V LED Dimmer PCB</h1>
 
             <div class="spec-stats">
@@ -39,61 +53,82 @@
                     <p class="spec-stat-value">LED</p>
                 </div>
             </div>
+        </section>
 
-            <h3>Why i built this</h3>
-            <p class="learned">This is my first PCB design project. I wanted to learn KiCad and figure out how to build a working circuit from scratch, so future Arduino projects can move from breadboard sprawl to something simpler and more compact.</p>
-            <p class="learned">With this project, i learned to calculate component values, routing, assigning footprints, and generating manufacturing files.</p>
-            <h3>How it works</h3>
-            <p class="learned">The potentiometer acts as a variable resistor, which controls the amount of current flowing to the LED. By adjusting the potentiometer, you can dim or brighten the LED.</p>
-            <p class="learned">The resistor is used to limit the current flowing through the LED, preventing it from burning out. The 2-pin connector is used to connect the battery to the circuit.</p>
-            <h3>Steps to Build</h3>
-            <p class="learned">1. Define the components — 9V supply, 5mm LED (~2V forward voltage, ~20mA), 330Ω resistor, 1kΩ potentiometer.</p>
-            <p class="learned">2. Draw the schematics, J1 to +9V/GND, then through RV1, R1 (330Ω), and D1 back to GND, using the real (non-SPICE) potentiometer symbol.</p>
-            <p class="learned">3. Add a PWR_FLAG on +9V and one on GND.</p>
-            <p class="learned">4. Run electrical rule check (ERC) until there are 0 violations.</p>
-            <p class="learned">5. Assign footprints for all components.</p>
-            <p class="learned">6. Update the PCB layout from the schematic, draw the edge cuts, and arrange the components.</p>
-            <p class="learned">7. Route all traces on the front copper layer, from J1 through RV1, R1, and D1.</p>
-            <p class="learned">8. Add a filled ground zone on the front copper layer, assigned to the GND net.</p>
-            <p class="learned">9. Run design rule check (DRC) until there are 0 errors, then generate the Gerber and drill files.</p>
-            <h3 class="components">Components</h3>
-            <div class="components-list">
-                <p>Resistor (330Ω)</p>
-                <p>Potentiometer(1kΩ)</p>
-                <p>2-Pin Connector</p>
-                <p>LED</p>
+        <div class="section-grid">
+            <div class="section-block">
+                <p class="section-tag">#1</p>
+                <h3>Why I built this</h3>
+                <p>This is my first PCB design project. I wanted to learn KiCad and figure out how to build a working circuit from scratch, so future Arduino projects can move from breadboard sprawl to something simpler and more compact.</p>
+                <p>With this project, I learned to calculate component values, routing, assigning footprints, and generating manufacturing files.</p>
+                <div class="visual-frame">
+                    <model-viewer alt="3D model of the 9V LED dimmer PCB" src="3D/9V_LED_Dimmer.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>
+                </div>
+                <p class="visual-caption">Drag to rotate the 3D model. Scroll to zoom.</p>
             </div>
-            <a href="https://github.com/Goatshy/9V-LED-dimmer-pcb" target="_blank" rel="noopener noreferrer">View Design Project</a>
+
+            <div class="section-block">
+                <p class="section-tag">#2</p>
+                <h3>How it works</h3>
+                <p>The potentiometer acts as a variable resistor, which controls the amount of current flowing to the LED. By adjusting the potentiometer, you can dim or brighten the LED.</p>
+                <p>The resistor is used to limit the current flowing through the LED, preventing it from burning out. The 2-pin connector is used to connect the battery to the circuit.</p>
+                <button type="button" class="visual-frame zoomable" data-zoom-src="css/img/pcb.png" aria-label="Zoom in on the PCB layout">
+                    <img src="css/img/pcb.png" alt="PCB layout of the 9V LED dimmer">
+                </button>
+            </div>
+
+            <div class="section-block">
+                <p class="section-tag">#3</p>
+                <h3>Components</h3>
+                <div class="components-list">
+                    <span>Resistor (330Ω)</span>
+                    <span>Potentiometer (1kΩ)</span>
+                    <span>2-Pin Connector</span>
+                    <span>LED</span>
+                </div>
+                <button type="button" class="visual-frame zoomable" data-zoom-src="css/img/led_dimmer_sch.png" aria-label="Zoom in on the schematic">
+                    <img src="css/img/led_dimmer_sch.png" alt="Schematic of the 9V LED dimmer">
+                </button>
+            </div>
         </div>
 
-        <div class="visual-embed-wrapper">
-            <p class="embed-hint">Drag to rotate the 3D model below. <br> Scroll to zoom.</p>
+        <section class="steps-section">
+            <p class="section-tag">#4</p>
+            <h3>Steps to build</h3>
+            <ol class="steps">
+                <li>Define the components — 9V supply, 5mm LED (~2V forward voltage, ~20mA), 330Ω resistor, 1kΩ potentiometer.</li>
+                <li>Draw the schematics, J1 to +9V/GND, then through RV1, R1 (330Ω), and D1 back to GND, using the real (non-SPICE) potentiometer symbol.</li>
+                <li>Add a PWR_FLAG on +9V and one on GND.</li>
+                <li>Run electrical rule check (ERC) until there are 0 violations.</li>
+                <li>Assign footprints for all components.</li>
+                <li>Update the PCB layout from the schematic, draw the edge cuts, and arrange the components.</li>
+                <li>Route all traces on the front copper layer, from J1 through RV1, R1, and D1.</li>
+                <li>Add a filled ground zone on the front copper layer, assigned to the GND net.</li>
+                <li>Run design rule check (DRC) until there are 0 errors, then generate the Gerber and drill files.</li>
+            </ol>
+        </section>
 
-            <div class="model-visual-embed">
-                <model-viewer alt="3D model" src="3D/9V_LED_Dimmer.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>
-            </div>
+        <a href="https://github.com/Goatshy/9V-LED-dimmer-pcb" target="_blank" rel="noopener noreferrer" class="cta-button">View Design Project</a>
+    </main>
 
-            <div class="flat-visual-embed">
-                <div class="flat-schematic-embed">
-                    <img src="img/pcb.png" alt="PCB" class="pcb-image">
-                </div>
-                <div class="flat-pcb-embed">
-                    <img src="img/led_dimmer_sch.png" alt="Schematic" class="schematic-image">
-                </div>
-            </div>
-        </div>
+    <div class="lightbox" id="lightbox" hidden>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close zoomed image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="">
     </div>
 
-    <div class="footer">
+    <footer class="footer">
         <div class="footer-left">
-            <p class="footer-name">&copy;2026 Ghazy El Zhirazy Hisyam</p>
+            <p class="footer-name">&copy; 2026 Ghazy El Zhirazy Hisyam</p>
         </div>
         <div class="footer-right">
             <a href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
             <a href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-    </div>
+    </footer>
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+    <script src="script/showcase.js"></script>
 </body>
 </html>

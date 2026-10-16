@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automatic Night Light PCB</title>
-    <link rel="shortcut icon" type="icon" href="Logo.jpg">
-    <link rel="stylesheet" href="style-showcase1.css">
+    <title>9V LED Dimmer PCB | Ghazy El Zhirazy Hisyam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-showcase1.css">
+    <style> .hero-title::before { background-image: url("css/img/selene.png"); }</style>
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
 </head>
 <body>
-    <div class="navbar">
+    <header class="navbar">
         <div class="left-nav">
-            <p>Ghazy El Zhirazy Hisyam</p>
+            <a href="index.html" class="brand">
+                <img class="brand-logo" src="Logo.jpg" alt="" width="28" height="28">
+                <span>Ghazy El Zhirazy Hisyam</span>
+            </a>
         </div>
-        <div class="right-nav">
+        <nav class="right-nav" aria-label="Main">
             <a href="index.html">Home</a>
             <a href="About.html">About</a>
             <a href="Projects.html">Projects</a>
-            <a href="Contact.html">Contact</a>
-        </div>
-    </div>
+            <a href="Contact.html" class="nav-cta">
+                Contact
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </nav>
+    </header>
 
-    <div class="body">
-        <div class="showcase-content">
-            <a href="Projects.html">Back to projects</a>
-            <h1 class="project-name">Automatic Night Light PCB</h1>
+    <main class="body">
+        <a href="Projects.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+            Back to projects
+        </a>
+
+        <section class="hero-title">
+            <h1 class="project-name">Automatic Night LED PCB</h1>
 
             <div class="spec-stats">
                 <div class="spec-stat">
@@ -39,69 +53,91 @@
                     <p class="spec-stat-value">LED</p>
                 </div>
             </div>
+        </section>
 
-            <h3>Why i built this</h3>
-            <p class="learned">I wanted to go deeper into PCB design and understand more components beyond an LED and a resistor. This project is a starting point for something more useful too, a simple automatic device that reacts to its environment but can still be overridden by hand.</p>
-            <p class="learned">Along the way I learned to use a comparator and a transistor, and how they hand off a signal from one stage to the next instead of one component doing everything alone.</p>
-            <h3>How it works</h3>
-            <p class="learned">The LDR's resistance drops in light and climbs in darkness, shifting the voltage at one spot in the circuit. The LM393 chip watches that spot against a line you set with the knob, RV1, and constantly checks: above the line, or below it? Cross it, and the chip flips its output from off to on.</p>
-            <p class="learned">That output can't drive the LED directly, its too weak. It opens a valve instead: Q1, the transistor, where a small trickle at its base swings open a much bigger flow from +9V to ground. Open the valve and the LED gets full current. Closed, it gets none. No in-between, no fade — just a switch flipping the instant the room crosses your line.</p>
-            <h3>Steps to Build</h3>
-            <p class="learned">1. Wire the sensor divider, +9V through R4 (the LDR) to a node, then through R1 (10kΩ) to ground, with the node feeding U1 pin 2 (IN-).</p>
-            <p class="learned">2. Wire the threshold pot: +9V to RV1 pin 1, ground to pin 3, and the wiper (pin 2) to U1 pin 3 (IN+).</p>
-            <p class="learned">3. Power the comparator by connecting pin 8 to +9V, pin 4 to ground, with C2 (100nF) bridging the two right at the chip.</p>
-            <p class="learned">4. Add the pull-up, R3 (4.7kΩ) from +9V to U1 pin 1 (OUT), since the comparator's output is open-collector.</p>
-            <p class="learned">5. Drive the transistor base,R5 (4.7kΩ) from OUT to Q1's base, sized for roughly 0.9mA to saturate it.</p>
-            <p class="learned">6. Wire the LED switch with +9V through R2 (330Ω) through the LED to Q1's collector, with the emitter to ground.</p>
-            <p class="learned">7. Terminate the unused half of the comparator (U1B) by no-connecting its pins so ERC doesn't flag them.</p>
-            <p class="learned">8. Add bulk power filtering: C1 (100µF) across +9V/ground near the input connector.</p>
-            <p class="learned">9. Assign footprints: DIP-8 for the comparator, TO-92 for the transistor, 5mm for the LDR, and match the pot's footprint to the part you're sourcing.</p>
-            <p class="learned">10. Place and route: pot near a board edge, C2 tight against the comparator, LDR clear of the LED's light path, ground poured as a zone, then run ERC and DRC and generate the manufacturing files.</p>
-            <div class="components-list">
-                <p>2-Pin Connector</p>
-                <p>Electrolytic Capacitor 1 (100μF)</p>
-                <p>Ceramic Capacitor 2 (100nF)</p>
-                <p>(R1)Resistor 1 (10kΩ)</p>
-                <p>(R2)Resistor 2 (330Ω)</p>
-                <p>(R3)Resistor 3 (4.7kΩ)</p>
-                <p>(R4)Light Dependent Resistor (LDR)</p>
-                <p>(R5)Resistor 5 (4.7kΩ)</p>
-                <p>Potentiometer (10kΩ)</p>
-                <p>Comparator</p>
-                <p>Transistor</p>
-                <p>LED</p>
+        <div class="section-grid">
+            <div class="section-block">
+                <p class="section-tag">#1</p>
+                <h3>Why I built this</h3>
+                <p>I wanted to go deeper into PCB design and understand more components beyond an LED and a resistor. This project is a starting point for something more useful too, a simple automatic device that reacts to its environment but can still be overridden by hand</p>
+                <p>Along the way I learned to use a comparator and a transistor, and how they hand off a signal from one stage to the next instead of one component doing everything alone.</p>
+                <div class="visual-frame">
+                    <model-viewer alt="3D model of the 9V LED dimmer PCB" src="3D/Automatic _Night_Light.wrl.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>
+                </div>
+                <p class="visual-caption">Drag to rotate the 3D model. Scroll to zoom.</p>
             </div>
-            <a href="https://github.com/Goatshy/AUTOMATIC-NIGHT-LED-PCB" target="_blank" rel="noopener noreferrer">View Design Project</a>
+
+            <div class="section-block">
+                <p class="section-tag">#2</p>
+                <h3>How it works</h3>
+                <p>The LDR's resistance drops in light and climbs in darkness, shifting the voltage at one spot in the circuit. The LM393 chip watches that spot against a line you set with the knob, RV1, and constantly checks: above the line, or below it? Cross it, and the chip flips its output from off to on.</p>
+                <p>That output can't drive the LED directly, its too weak. It opens a valve instead: Q1, the transistor, where a small trickle at its base swings open a much bigger flow from +9V to ground. Open the valve and the LED gets full current. Closed, it gets none. No in-between, no fade — just a switch flipping the instant the room crosses your line..</p>
+                <button type="button" class="visual-frame zoomable" data-zoom-src="css/img/pCB 2.png" aria-label="Zoom in on the PCB layout">
+                    <img src="css/img/pCB 2.png" alt="PCB layout of the 9V LED dimmer">
+                </button>
+            </div>
+
+            <div class="section-block">
+                <p class="section-tag">#3</p>
+                <h3>Components</h3>
+                <div class="components-list">
+                <span>2-Pin Connector</span>
+                <span>Electrolytic Capacitor 1 (100μF)</span>
+                <span>Ceramic Capacitor 2 (100nF)</span>
+                <span>(R1)Resistor 1 (10kΩ)</span>
+                <span>(R2)Resistor 2 (330Ω)</span>
+                <span>(R3)Resistor 3 (4.7kΩ)</span>
+                <span>(R4)Light Dependent Resistor (LDR)</span>
+                <span>(R5)Resistor 5 (4.7kΩ)</span>
+                <span>Potentiometer (10kΩ)</span>
+                <span>Comparator</span>
+                <span>Transistor</span>
+                <span>LED</span>
+                </div>
+                <button type="button" class="visual-frame zoomable" data-zoom-src="css/img/AutoLight.png" aria-label="Zoom in on the schematic">
+                    <img src="css/img/AutoLight.png" alt="Schematic of the 9V LED dimmer">
+                </button>
+            </div>
         </div>
 
-        <div class="visual-embed-wrapper">
-            <p class="embed-hint">Drag to rotate the 3D model below. <br> Scroll to zoom.</p>
+        <section class="steps-section">
+            <p class="section-tag">#4</p>
+            <h3>Steps to build</h3>
+            <ol class="steps">
+            <li>1. Wire the sensor divider, +9V through R4 (the LDR) to a node, then through R1 (10kΩ) to ground, with the node feeding U1 pin 2 (IN-).</li>
+            <li>2. Wire the threshold pot: +9V to RV1 pin 1, ground to pin 3, and the wiper (pin 2) to U1 pin 3 (IN+).</li>
+            <li>3. Power the comparator by connecting pin 8 to +9V, pin 4 to ground, with C2 (100nF) bridging the two right at the chip.</li>
+            <li>4. Add the pull-up, R3 (4.7kΩ) from +9V to U1 pin 1 (OUT), since the comparator's output is open-collector.</li>
+            <li>5. Drive the transistor base,R5 (4.7kΩ) from OUT to Q1's base, sized for roughly 0.9mA to saturate it.</li>
+            <li>6. Wire the LED switch with +9V through R2 (330Ω) through the LED to Q1's collector, with the emitter to ground.</li>
+            <li>7. Terminate the unused half of the comparator (U1B) by no-connecting its pins so ERC doesn't flag them.</li>
+            <li>8. Add bulk power filtering: C1 (100µF) across +9V/ground near the input connector.</li>
+            <li>9. Assign footprints: DIP-8 for the comparator, TO-92 for the transistor, 5mm for the LDR, and match the pot's footprint to the part you're sourcing.</li>
+            <li>10. Place and route: pot near a board edge, C2 tight against the comparator, LDR clear of the LED's light path, ground poured as a zone, then run ERC and DRC and generate the manufacturing files.</li>
+            </ol>
+        </section>
 
-            <div class="model-visual-embed">
-                <model-viewer alt="3D model" src="3D/Automatic _Night_Light.wrl.glb" autoplay camera-controls touch-action="pan-y" camera-orbit="30deg 75deg 105%"></model-viewer>
-            </div>
+        <a href="https://github.com/Goatshy/AUTOMATIC-NIGHT-LED-PCB" target="_blank" rel="noopener noreferrer" class="cta-button">View Design Project</a>
+    </main>
 
-            <div class="flat-visual-embed">
-                <div class="flat-pcb-embed">
-                    <img src="img/pCB 2.png" alt="PCB" class="pcb-image">
-                </div>
-                <div class="flat-schematic-embed">
-                    <img src="img/AutoLight.png" alt="Schematic" class="schematic-image">
-                </div>
-            </div>
-        </div>
+    <div class="lightbox" id="lightbox" hidden>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close zoomed image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="">
     </div>
 
-    <div class="footer">
+    <footer class="footer">
         <div class="footer-left">
-            <p class="footer-name">&copy;2026 Ghazy El Zhirazy Hisyam</p>
+            <p class="footer-name">&copy; 2026 Ghazy El Zhirazy Hisyam</p>
         </div>
         <div class="footer-right">
             <a href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
             <a href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-    </div>
+    </footer>
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+    <script src="script/showcase.js"></script>
 </body>
 </html>

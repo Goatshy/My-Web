@@ -3,36 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website - Projects</title>
-    <link rel="stylesheet" href="style-projects.css">
-    <link rel="shortcut icon" type="icon" href="Logo.jpg">
+    <title>Ghazy El Zhirazy Hisyam | Projects</title>
+    <meta name="description" content="Arduino and PCB projects by Ghazy El Zhirazy Hisyam, an Industrial Electrical Engineering student.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-projects.css">
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
 </head>
 <body>
-    <div class="navbar">
+    <header class="navbar">
         <div class="left-nav">
-            <p>Ghazy El Zhirazy Hisyam</p>
+            <a href="index.html" class="brand">
+                <img class="brand-logo" src="Logo.jpg" alt="" width="28" height="28">
+                <span>Ghazy El Zhirazy Hisyam</span>
+            </a>
         </div>
-        <div class="right-nav">
+        <nav class="right-nav" aria-label="Main">
             <a href="index.html">Home</a>
             <a href="About.html">About</a>
-            <a href="Projects.html">Projects</a>
-            <a href="Contact.html">Contact</a>
-        </div>
-    </div>
-    <div class="body">
+            <a href="Projects.html" aria-current="page">Projects</a>
+            <a href="Contact.html" class="nav-cta">
+                Contact
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </nav>
+    </header>
+
+    <main class="body">
         <h2 class="projects">Projects</h2>
         <h1 class="opener">Learning in public, building in practice</h1>
-        <h3 class="descript">A running record of what i'm building, from small ideas to larger implementations </h3>
+        <p class="descript">A running record of what I'm building, from small ideas to larger implementations.</p>
+
+        <div class="project-summary">
+            <span>5 projects</span>
+            <span>2 platforms: Arduino, KiCad</span>
+        </div>
 
         <div class="project-list">
-            <a href="reaction-time.html" class="project-row">
+            <a href="reaction-time.html" class="project-row" data-category="Arduino">
+                <span class="term-bar" aria-hidden="true"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span></span>
                 <p class="project-index">01 / Arduino</p>
                 <div class="project-content">
                     <div class="project-row-header">
                         <h2 class="project-name">Arduino Reaction Time Test</h2>
-                        <span class="project-link">View &rarr;</span>
+                        <span class="project-link">View
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </span>
                     </div>
-                    <h3 class="project-description">A simple hardware test measuring human reaction speed using an LED trigger and button input, logged in milliseconds.</h3>
+                    <p class="project-description">A hardware test that measures reaction speed with an LED trigger and a button, logged in milliseconds.</p>
                     <div class="spec-pills">
                         <span class="spec-pill">Inputs: 1 button</span>
                         <span class="spec-pill">Resolution: ms</span>
@@ -41,14 +60,17 @@
                 </div>
             </a>
 
-            <a href="humidity-sensor.html" class="project-row">
+            <a href="humidity-sensor.html" class="project-row" data-category="Arduino">
+                <span class="term-bar" aria-hidden="true"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span></span>
                 <p class="project-index">02 / Arduino</p>
                 <div class="project-content">
                     <div class="project-row-header">
                         <h2 class="project-name">Arduino Temperature &amp; Humidity Sensor</h2>
-                        <span class="project-link">View &rarr;</span>
+                        <span class="project-link">View
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </span>
                     </div>
-                    <h3 class="project-description">A simple hardware test measuring temperature and humidity levels using a DHT sensor, logged in real-time.</h3>
+                    <p class="project-description">A hardware test that reads temperature and humidity from a DHT sensor and logs it in real time.</p>
                     <div class="spec-pills">
                         <span class="spec-pill">Sensor: DHT [verify model]</span>
                         <span class="spec-pill">Output: LCD readout</span>
@@ -56,14 +78,17 @@
                 </div>
             </a>
 
-            <a href="radar-system.html" class="project-row">
+            <a href="radar-system.html" class="project-row" data-category="Arduino">
+                <span class="term-bar" aria-hidden="true"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span></span>
                 <p class="project-index">03 / Arduino</p>
                 <div class="project-content">
                     <div class="project-row-header">
                         <h2 class="project-name">Arduino Radar System</h2>
-                        <span class="project-link">View &rarr;</span>
+                        <span class="project-link">View
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </span>
                     </div>
-                    <h3 class="project-description">An ultrasonic radar simulation using a rotating servo and distance sensor to detect and map nearby objects.</h3>
+                    <p class="project-description">An ultrasonic radar simulation that uses a rotating servo and a distance sensor to map nearby objects.</p>
                     <div class="spec-pills">
                         <span class="spec-pill">Sensor: Ultrasonic [verify model]</span>
                         <span class="spec-pill">Actuator: Servo [verify model]</span>
@@ -71,45 +96,52 @@
                 </div>
             </a>
 
-            <a href="PCB-Dimmer.html" class="project-row">
+            <a href="PCB-Dimmer.html" class="project-row" data-category="KiCad">
+                <span class="term-bar" aria-hidden="true"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span></span>
                 <p class="project-index">04 / KiCad</p>
                 <div class="project-content">
                     <div class="project-row-header">
                         <h2 class="project-name">9V LED Dimmer PCB</h2>
-                        <span class="project-link">View &rarr;</span>
+                        <span class="project-link">View
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </span>
                     </div>
-                    <h3 class="project-description">A custom PCB that takes a 9V input and controls the brightness of an LED using a potentiometer.</h3>
+                    <p class="project-description">A custom PCB that takes a 9V input and controls LED brightness with a potentiometer.</p>
                     <div class="spec-pills">
-                        <span class="spec-pill">Input: 9V Battery</span>
+                        <span class="spec-pill">Input: 9V battery</span>
                         <span class="spec-pill">Control: Potentiometer</span>
                     </div>
                 </div>
             </a>
-            
-            <a href="PCB-AutoLight.html" class="project-row">
+
+            <a href="PCB-AutoLight.html" class="project-row" data-category="KiCad">
+                <span class="term-bar" aria-hidden="true"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span></span>
                 <p class="project-index">05 / KiCad</p>
                 <div class="project-content">
                     <div class="project-row-header">
                         <h2 class="project-name">Automatic Night Light PCB</h2>
-                        <span class="project-link">View &rarr;</span>
+                        <span class="project-link">View
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </span>
                     </div>
-                    <h3 class="project-description">A custom PCB that takes a 9V input and automatically turns on an LED when it detects low light conditions using an LDR.</h3>
+                    <p class="project-description">A custom PCB that takes a 9V input and switches on an LED automatically in low light, using an LDR.</p>
                     <div class="spec-pills">
-                        <span class="spec-pill">Input: 9V Battery</span>
+                        <span class="spec-pill">Input: 9V battery</span>
                         <span class="spec-pill">Control: LDR</span>
                     </div>
                 </div>
             </a>
         </div>
-    </div>
-     <div class="footer">
+    </main>
+
+    <footer class="footer">
         <div class="footer-left">
-            <p class="footer-name">&copy;2026 Ghazy El Zhirazy Hisyam</p>
+            <p class="footer-name">&copy; 2026 Ghazy El Zhirazy Hisyam</p>
         </div>
         <div class="footer-right">
             <a href="mailto:ghazyel08@gmail.com">ghazyel08@gmail.com</a>
             <a href="https://www.linkedin.com/in/ghazyel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
